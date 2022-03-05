@@ -1,4 +1,4 @@
-import {} from 'react-bootstrap'
+
 import CartWidget from './CartWidget'
 
 

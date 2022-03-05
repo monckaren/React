@@ -3,10 +3,11 @@ import NavBar from "./NavBar"
 import ItemLisContainer from "./ItemListContainer"
 
 
+
 function App (){
     return <>
     <NavBar/>
-    <ItemLisContainer greeting="texto"/>
+    <ItemLisContainer greeting="Aca podes encontrar todo lo que estas buscando" />
     </>
    
    
