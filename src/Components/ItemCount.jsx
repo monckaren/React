@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {ButtonGroup, Button, InputGroup, FormControl} from 'react-bootstrap'
+import {ButtonGroup, Button, InputGroup} from 'react-bootstrap'
 
 function ItemCount (props){
     const [contador,setContador] = useState(props.initial)
@@ -11,11 +11,10 @@ function ItemCount (props){
     const handleMinus = () =>{
         setContador(contador - 1)
     }
-    
+
     if(contador < props.initial){
       setContador(props.initial)
     }else if(contador > props.stock){
-   
     setContador(props.stock)
         
     }
@@ -33,7 +32,9 @@ function ItemCount (props){
     Comprar
   </Button>
     <p> Has agregado al carrito {contador} producto (s) </p>
-   </>
+
+   
+    </>
     );
         
     
