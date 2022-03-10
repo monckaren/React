@@ -4,10 +4,9 @@ import Item from "./Item"
 const ItemList = ({productos}) => {
     return <>
     <ul>
-           {productos.map((producto => {
-               return (<>
-               <Item producto={producto}/>
-               </>)
+           {productos.map(((producto, index) => {
+               return <Item key={index} producto={producto}/>
+               
            }))}
        </ul>
     </>

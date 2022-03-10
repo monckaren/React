@@ -28,3 +28,14 @@ nav a {
 main{
     padding-top: 1em;
 }
+
+.Cards{
+    display: flex;
+    justify-content: space-between;
+    display: inline-block;
+}
+
+.card-img{
+    max-width: 333px;
+    width: 100%;
+}
