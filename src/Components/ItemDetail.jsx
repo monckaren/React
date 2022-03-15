@@ -1,15 +1,15 @@
-import {Card, Button} from 'react-bootstrap'
+import {Card} from 'react-bootstrap'
 
 const ItemDetail = ({item}) => {
     return <>
-    <div>
+    <div className='detailCard'>
     <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={item.imagen} />
+  <Card.Img variant="top" src={item[0].imagen} />
   <Card.Body>
-    <Card.Title>{item.nombre}</Card.Title>
-    <Card.Text>{item.descripcion}</Card.Text>
+  <Card.Title>{item[0].nombre}</Card.Title>
+  <Card.Text>{item[0].descripcion}</Card.Text>
   </Card.Body>
-</Card>
+  </Card>
     </div>
     </>
 }

@@ -39,3 +39,8 @@ main{
     max-width: 333px;
     width: 100%;
 }
+
+.detailCard{
+    display: flex;
+    justify-content: center;
+}
