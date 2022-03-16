@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
+import {toast} from "react-toastify"
 
 let productosIniciales = [
     {id:1, nombre:"Campera White", imagen: "./img/ary-milligan-nLVyej-i2N4-unsplash.jpg", precio:"5800", quantity: 0},
@@ -27,7 +28,7 @@ useEffect (() => {
            setProductos(productosIniciales) 
         })
         .catch((errorApi) => {
-            alert ("Error de la web")
+            toast.error("Error del servidor")
         })
         .finally(() => {
            setLoading (false) 

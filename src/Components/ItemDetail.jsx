@@ -13,4 +13,4 @@ const ItemDetail = ({item}) => {
     </div>
     </>
 }
-export default ItemDetail
+export default ItemDetail 

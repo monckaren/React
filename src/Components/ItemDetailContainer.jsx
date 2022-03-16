@@ -14,6 +14,7 @@ res (items)
 const ItemDetailContainer = () => {
 
 const [ item, setItem] = useState([])
+const [isLoading, setIsLoading] =useState(true)
 
 const getItem = () => {
     return promise
@@ -23,6 +24,7 @@ useEffect(() => {
   getItem() 
 .then((respuesta) => {
     setItem(items)
+    setIsLoading(false)
 })  
 .catch((error) => {
 console.log(error)
@@ -31,7 +33,7 @@ console.log(error)
 
 return <>
 <div>
-    <ItemDetail item={item}/>
+    {isLoading ? <span>Cargando..</span> : <ItemDetail item={item}/>}
 </div>
 </>
 }
