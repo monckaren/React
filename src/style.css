@@ -18,6 +18,11 @@ header{
     
 }
 
+.titulo{
+    color: black;
+    text-decoration: none;
+}
+
 nav a {
     color: black;
     text-decoration: none;
