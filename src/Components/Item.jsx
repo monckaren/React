@@ -2,6 +2,7 @@ import React from "react"
 import {Card} from 'react-bootstrap'
 
 
+
 function Item({producto}){
   console.log(producto)
 return(
@@ -15,6 +16,7 @@ return(
     <Card.Body>
     <Card.Title>{producto.nombre}</Card.Title>
     <Card.Text> $ {producto.precio}</Card.Text>
+    
     </Card.Body>
     </Card>
       </div>

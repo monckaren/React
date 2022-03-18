@@ -1,5 +1,8 @@
 import {Card} from 'react-bootstrap'
-
+import ItemCount from './ItemCount'
+ const handleOnAdd = () => {
+   console.log("on add")
+ } 
 const ItemDetail = ({item}) => {
     return <>
     <div className='detailCard'>
@@ -8,6 +11,7 @@ const ItemDetail = ({item}) => {
   <Card.Body>
   <Card.Title>{item[0].nombre}</Card.Title>
   <Card.Text>{item[0].descripcion}</Card.Text>
+  <ItemCount initial={1} stock={10} onAdd={handleOnAdd}/>
   </Card.Body>
   </Card>
     </div>
