@@ -5,8 +5,8 @@ import ItemCount from './ItemCount'
  } 
 const ItemDetail = ({item}) => {
     return <>
-    <div className='detailCard'>
-    <Card style={{ width: '18rem' }}>
+    <div className='detailCard mt-5'>
+    <Card style={{ width: '25rem' }}>
   <Card.Img variant="top" src={item[0].imagen} />
   <Card.Body>
   <Card.Title>{item[0].nombre}</Card.Title>
