@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import {ButtonGroup, Button, InputGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import {context} from "./CartContext"
 
 function ItemCount (props){
     const [contador,setContador] = useState(props.initial)
     const [seleccionado, setSeleccionado] = useState(false)
+    const resultado = useContext(context)
+    console.log(resultado)
 
     const handleClick = () => {
         setContador(contador +1)

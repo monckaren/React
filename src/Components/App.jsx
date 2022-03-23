@@ -5,7 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import ItemDetailContainer from "./ItemDetailContainer"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
+import {MiProvider, CartContext} from "./CartContext"
 import {Carrito} from "./Carrito"
+
+
 
 
 
@@ -13,7 +16,9 @@ function App (){
     const handleToast = () => {
        <ToastContainer/> 
     }
-    return <BrowserRouter>
+    return (
+    <MiProvider>
+    <BrowserRouter>
     <NavBar/>
     
     <Routes>
@@ -26,9 +31,9 @@ function App (){
     </Routes>
  
     </BrowserRouter>
+    </MiProvider>
     
-   
-   
+    ) 
 }
 
 export default App

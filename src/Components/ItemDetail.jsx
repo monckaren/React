@@ -12,8 +12,8 @@ const ItemDetail = ({item}) => {
     <Card style={{ width: '25rem' }}>
   <Card.Img variant="top" src={item[0].imagen} />
   <Card.Body>
-  <Card.Title>{item[0].nombre}</Card.Title>
-  <Card.Text>{item[0].descripcion}</Card.Text>
+  <Card.Title>{item.nombre}</Card.Title>
+  <Card.Text>{item.descripcion}</Card.Text>
   <ItemCount initial={1} stock={10} />
   </Card.Body>
   </Card>
