@@ -5,20 +5,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import ItemDetailContainer from "./ItemDetailContainer"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
-import {MiProvider, CartContext} from "./CartContext"
+import {NewProvider } from "./CartContext"
 import {Carrito} from "./Carrito"
+import ItemCount from "./ItemCount"
+import {createContext} from "react"
 
-
-
-
+export const CartContext = createContext([ItemCount])
+const {Provider} = CartContext
 
 function App (){
     const handleToast = () => {
        <ToastContainer/> 
     }
     return (
-    <MiProvider>
-    <BrowserRouter>
+<NewProvider>
+       <BrowserRouter>
     <NavBar/>
     
     <Routes>
@@ -31,7 +32,11 @@ function App (){
     </Routes>
  
     </BrowserRouter>
-    </MiProvider>
+</NewProvider>
+ 
+   
+
+ 
     
     ) 
 }

@@ -1,42 +1,60 @@
 
 import {createContext, useState} from "react"
+export const CartContext = createContext()
+const {Provider} = CartContext
 
-export const context = createContext()
-const {Provider} = context
-
-export const MiProvider = ({children}) => {
-  const [carrito, setCarrito] = useState([])
-  const [total, setTotal] = useState (0)
-  const [quantity, setQuantity] = useState(0)
-
-  const borrarDelCarrito = (id) => {}
-
-  const agregarAlCarrito = (producto, quantity) => {
-    if (isInCart()){
+export const NewProvider = ({children}) => {
+  
+   const [total, setTotal] = useState(0)
+   const [quantity, setQuantity] = useState(0)
+   const [cart, setCart] = useState([])
+   const [seleccionado, setSeleccionado] = useState(false)
+   
+  const cartProductAux = ([])
+  const clearCart = () => {
+    setCart([])
+}
+   const addItem = (item, quantity) => {
+    let cartProduct = {item, quantity};
+  
+    if(isInCart(item)){
+      cartProduct = cart.find(x => x.item.id === item.id)
+      cartProduct.quantity = cart.quantity + quantity;
+      cartProductAux = [...cart]
     }else{
-        const copia = carrito.slice(0)
-      }
+      cartProductAux = [...cart,cartProduct]
+    }
+    setCart(cartProductAux)
+    const deleteCart = (id) => {}
+  
+  console.log("on add")
+
+} 
+const removeItem = (id) => {}
+  const onAdd = (unidadSeleccionada) => {
+    if(unidadSeleccionada !== undefined){
+    setSeleccionado(unidadSeleccionada)
+    
+    }else{
+      setSeleccionado(true)
+    }
+  }
+
+
+   const isInCart = (item) => {
+    const result = cart.some(p => p.item.id === item.id)
+    return result 
     }
 
-    const cleanCart = () => {
-      setCarrito([])
-    }
+return (
+<Provider value={{addItem, removeItem, clearCart, cart}}>
+  {children}
 
-    const isInCart = (id) => {}
-    const contextValue = {
-      carrito : carrito,
-      total : total,
-      borrarDelCarrito : borrarDelCarrito,
-      agregarAlCarrito : agregarAlCarrito,
+</Provider>
+)
 
-    }
-      return (
-        <Provider value={contextValue}>
-          {children}
-        </Provider>
-      )
-    }
 
+}
   
 
 

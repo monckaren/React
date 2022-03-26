@@ -13,7 +13,7 @@ let productosIniciales = [
     {id:6, nombre: "Blazer Black", imagen: "../img/joshua-rondeau-3_sGB2ON4X0-unsplash.jpg", precio:"4600", quantity:0, sale: "true" },
     ]
 
-const ItemLisContainer =  (props) => {
+const ItemListContainer =  (props) => {
 const [loading, setLoading] = useState(true)
 const [ productos, setProductos] = useState([])
 const params = useParams()
@@ -59,4 +59,4 @@ return <>
     </>
  
 }
-export default ItemLisContainer
+export default ItemListContainer

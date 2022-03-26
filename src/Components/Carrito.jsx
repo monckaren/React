@@ -1,19 +1,12 @@
-import { useContext } from 'react'
 import {context} from "./CartContext"
 import Table from 'react-bootstrap/Table'
 
-export const Carrito = () => {
-  const resultado = useContext(context)
-const carrito = resultado.carrito
-const borrarDelCarrito = resultado.borrarDelCarrito
-const total = resultado.total
 
-const handleBorrar = () => {
-    console.log("Se ha eliminado")
-}
+export const Carrito = () => {
+
+
     return<>
-    {carrito.map(item =>(
-     <Table className="container mt-4" >
+    <Table>
       <thead>
     <tr>
       <th>Cantidad </th>
@@ -24,19 +17,21 @@ const handleBorrar = () => {
     </thead>
     <tbody>
     <tr>
-      <td>{item.quantity}</td>
-      <td>{item.nombre}</td>
-      <td>${item.precio}</td>
-      <td>${item.quantity} x {item.precio}</td>
-    <button onClick={handleBorrar}>Eliminar</button>
+      {/* <td>{quantity}</td>
+      <td>{nombre}</td>
+      <td>${precio}</td>
+      <td>${quantity} x {precio}</td> */}
+    {/* <button onClick={handleBorrar}>Eliminar</button> */}
     </tr>
     
       </tbody>
-    </Table>
-    ))}
-       </>
+    </Table> 
+     
+          </>
+}
+ 
     
    
   
         
-    }
+    

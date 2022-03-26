@@ -1,13 +1,17 @@
 import { useState, useContext } from "react"
 import {ButtonGroup, Button, InputGroup} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import {context} from "./CartContext"
+import { Link, useParams } from 'react-router-dom'
+import {CartContext} from "./CartContext"
+import {handleOnAdd} from "./ItemDetail"
+
 
 function ItemCount (props){
     const [contador,setContador] = useState(props.initial)
     const [seleccionado, setSeleccionado] = useState(false)
-    const resultado = useContext(context)
-    console.log(resultado)
+    const resultado = useContext(CartContext);
+
+
+    
 
     const handleClick = () => {
         setContador(contador +1)
@@ -23,20 +27,8 @@ function ItemCount (props){
     setContador(props.stock)
         
     }
+    
    
-    const onAdd = (unidadSeleccionada) => {
-      console.log("desde el itenDetail")
-      if(unidadSeleccionada != undefined){
-      setSeleccionado(unidadSeleccionada)
-      }else{
-        setSeleccionado(true)
-      }
-
-      }
-      const handleOnAdd = () => {
-        console.log("on add")
-        onAdd(contador)
-      } 
     return (
     <>
     <ButtonGroup aria-label="Basic example">
@@ -52,8 +44,8 @@ function ItemCount (props){
   </Button></Link>}
     <p> Has agregado al carrito {contador} producto (s) </p>
     <p>{seleccionado ? "ya se selecciono algo!" : "No se eligio ninguna cantidad"}</p>
-    <Button variant="primary" size="md" active onClick={handleOnAdd}>
-    Comprar
+    <Button variant="primary" size="md" active onClick={() => props.onAdd(contador)}>
+   Agregar al carrito
   </Button>
    
     </>
