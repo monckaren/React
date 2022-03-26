@@ -48,7 +48,7 @@ useEffect (() => {
 } 
 
 
-})
+}, [params.true])
 return <>
    <main className="container">
    <h2>{props.greeting}</h2>

@@ -10,7 +10,7 @@ export const NewProvider = ({children}) => {
    const [cart, setCart] = useState([])
    const [seleccionado, setSeleccionado] = useState(false)
    
-  const cartProductAux = ([])
+  let cartProductAux = ([])
   const clearCart = () => {
     setCart([])
 }
@@ -19,33 +19,27 @@ export const NewProvider = ({children}) => {
   
     if(isInCart(item)){
       cartProduct = cart.find(x => x.item.id === item.id)
-      cartProduct.quantity = cart.quantity + quantity;
+      cartProduct.quantity = cartProduct.quantity + quantity;
       cartProductAux = [...cart]
     }else{
       cartProductAux = [...cart,cartProduct]
     }
     setCart(cartProductAux)
-    const deleteCart = (id) => {}
   
-  console.log("on add")
 
 } 
-const removeItem = (id) => {}
-  const onAdd = (unidadSeleccionada) => {
-    if(unidadSeleccionada !== undefined){
-    setSeleccionado(unidadSeleccionada)
-    
-    }else{
-      setSeleccionado(true)
-    }
-  }
+const removeItem = (item) => {
+setCart(cart.filter(p=>p.item != item.id))
+}
+  
+  
 
 
    const isInCart = (item) => {
     const result = cart.some(p => p.item.id === item.id)
     return result 
     }
-
+console.log(cart)
 return (
 <Provider value={{addItem, removeItem, clearCart, cart}}>
   {children}

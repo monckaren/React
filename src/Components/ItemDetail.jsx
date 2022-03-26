@@ -5,22 +5,22 @@ import ItemCount from './ItemCount'
 import { useState } from 'react'
 
  
-export const ItemDetail = ({producto}) => {
-  console.log(producto)
-  const [item] = producto
+export const ItemDetail = ({item}) => {
+  console.log(item)
+  const [producto] = item
   const {addItem} = useContext(CartContext)
-  const [cart, setCart] = useState([]) 
+  
 
 
   const handleOnAdd = (contador) => {
-    addItem(producto, contador)}
+    addItem(item, contador)}
 return <>
 <div className='detailCard mt-5'>
   <Card style={{ width: '25rem' }}>
-  <Card.Img variant="top" src={item.imagen} />
+  <Card.Img variant="top" src={producto.imagen} />
   <Card.Body>
-  <Card.Title>{item.nombre}</Card.Title>
-  <Card.Text>{item.descripcion}</Card.Text>
+  <Card.Title>{producto.nombre}</Card.Title>
+  <Card.Text>{producto.descripcion}</Card.Text>
   <ItemCount initial={1} stock={10} onAdd={handleOnAdd}/>
   </Card.Body>
   </Card>
