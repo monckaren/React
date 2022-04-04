@@ -3,7 +3,9 @@ import {CartContext} from "./CartContext"
 import { useContext } from 'react'
 import ItemCount from './ItemCount'
 import { useState } from 'react'
-
+import { db } from "./Firebase"
+import { getDoc , collection , doc , where , query , getDocs } from "firebase/firestore"
+import { Link, useNavigate, useParams } from "react-router-dom"
  
 export const ItemDetail = ({item}) => {
   console.log(item)

@@ -1,14 +1,15 @@
 
 import {createContext, useState} from "react"
+
 export const CartContext = createContext()
 const {Provider} = CartContext
 
 export const NewProvider = ({children}) => {
   
-   const [total, setTotal] = useState(0)
-   const [quantity, setQuantity] = useState(0)
+   
+   
    const [cart, setCart] = useState([])
-   const [seleccionado, setSeleccionado] = useState(false)
+   
    
   let cartProductAux = ([])
   const clearCart = () => {
@@ -33,8 +34,6 @@ setCart(cart.filter(p=>p.item != item.id))
 }
   
   
-
-
    const isInCart = (item) => {
     const result = cart.some(p => p.item.id === item.id)
     return result 

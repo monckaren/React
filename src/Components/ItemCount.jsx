@@ -39,14 +39,17 @@ function ItemCount (props){
     </InputGroup>
     <Button variant="secondary" onClick={handleClick}> + </Button>
     </ButtonGroup>
-    {seleccionado && <Link to="/Carrito"><Button onClick={() => setSeleccionado(true)}ariant="primary" size="md" active >
+    {seleccionado && <Link to="/Carrito"><Button onClick={() => setSeleccionado(true)} variant="primary" size="md" active >
     Finalizar Compra
   </Button></Link>}
     <p> Has agregado al carrito {contador} producto (s) </p>
     <p>{seleccionado ? "ya se selecciono algo!" : "No se eligio ninguna cantidad"}</p>
-    <Button variant="primary" size="md" active onClick={() => props.onAdd(contador)}>
+   <Button variant="primary" size="md" active onClick={() => props.onAdd(contador)}>
    Agregar al carrito
   </Button>
+  <Link  to="/Carrito"><Button variant="primary" size="md" active onClick={() => props.onAdd(contador)}>
+   ir al carrito
+  </Button></Link>
    
     </>
     );

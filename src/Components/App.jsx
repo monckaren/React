@@ -6,7 +6,7 @@ import ItemDetailContainer from "./ItemDetailContainer"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 import {NewProvider } from "./CartContext"
-import {Carrito} from "./Carrito"
+import {Cart} from "./Cart"
 import ItemCount from "./ItemCount"
 import {createContext} from "react"
 
@@ -25,7 +25,7 @@ function App (){
     <Routes>
         <Route path="/" element={<ItemListContainer greeting="Aca podes encontrar todo lo que estas buscando" />}></Route>
         <Route path="/category/:id" element={<ItemListContainer/>}></Route>
-        <Route path="/Carrito" element={<Carrito/>}></Route>
+        <Route path="/Carrito" element={<Cart/>}></Route>
         <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
         <Route path="/sale/:true" element={<ItemListContainer/>}></Route>
   

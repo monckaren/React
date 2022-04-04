@@ -3,9 +3,12 @@ import React from "react"
 import {useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import {useParams} from "react-router-dom"
+import {db} from "./Firebase"
+import {getDocs, collection, query, where} from "firebase/firestore"
+import { toast } from "react-toastify"
 
 
-let items = [{id:1, nombre:"Campera White", imagen: "../img/ary-milligan-nLVyej-i2N4-unsplash.jpg", precio:"5800", descripcion:"Campera de jean. Color: Blanco. Disponibles 3 y 6 cuotas sin interes"},
+/* let items = [{id:1, nombre:"Campera White", imagen: "../img/ary-milligan-nLVyej-i2N4-unsplash.jpg", precio:"5800", descripcion:"Campera de jean. Color: Blanco. Disponibles 3 y 6 cuotas sin interes"},
 {id:2, nombre: "Remera Black Slim Fit", imagen: "../img/ian-dooley-1yl3jzKoKXg-unsplash.jpg", precio:"2300",  sale: "false" },
 {id:3, nombre: "Jean Slim Fit", imagen: "../img/vladimir-fedotov-MPfyh3xJ1iE-unsplash.jpg", precio:"4800", sale: "true" },
 {id:4, nombre: "Jean Holgado Claro ", imagen: "../img/hans-isaacson-QJfXnkKrtlo-unsplash.jpg", precio:"5300",  sale: "false" },
@@ -18,31 +21,33 @@ setTimeout(() => {
 
 res (items)
 }, 2000)
-})
+}) */
 
 export const ItemDetailContainer = () => {
 
-const [ item, setItem] = useState([])
+  const [ item, setItem] = useState([])
 const [isLoading, setLoading] =useState(true)
+const [ productos, setProductos] = useState([])
+const {id} = useParams()
 
 
-const getItem = () => {
+/* const getItem = () => {
 
     return promise
-}
+} */
 const params = useParams()
-useEffect(() => {
-  getItem() 
-.then((respuesta) => {
- setItem(respuesta.filter(p=>p.id == params.id))
- setLoading(false)
-})  
-.catch((error) => {
-console.log(error)
-})
-}, [params.id])
-console.log(item)
 
+useEffect(() => {
+  const productCollection = collection(db,"productos")
+  const itemFilter = query(productCollection, where("id","==",Number(id)))
+  const documentos = getDocs(itemFilter)
+
+  documentos
+  // getItem() 
+.then(respuesta => setItem(respuesta.docs.map(doc=>doc.data())[0]))  
+.catch(error => toast.error("Error al obtener los productos"))
+.finally(()=> setLoading(false))
+},[id])
 return <>
 <div>
     {isLoading ? <span>Cargando..</span> : <ItemDetail item={item}/>}
