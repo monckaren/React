@@ -48,17 +48,7 @@ useEffect (() => {
     }, 2000)  */ 
  },[id])
 
- /* if(params.true){
-     promesa
-     .then((data) => {
-         setProductos(data.filter(x=> x.sale == params.true));
-         setLoading(false)
-     })
- }else{
-    promesa 
-    .then((respuestaApi) => {
-        setProductos(productosIniciales) 
-    })
+ /* 
     .catch((errorApi) => {
         toast.error("Error del servidor")
     })

@@ -39,12 +39,14 @@ const params = useParams()
 
 useEffect(() => {
   const productCollection = collection(db,"productos")
-  const itemFilter = query(productCollection, where("id","==",Number(id)))
+  const itemFilter = query(productCollection, where("id","==",id))
   const documentos = getDocs(itemFilter)
 
   documentos
   // getItem() 
-.then(respuesta => setItem(respuesta.docs.map(doc=>doc.data())[0]))  
+.then(respuesta => {console.log("respuesta")
+  setItem(respuesta.docs.map(doc=>doc.data())) })
+   
 .catch(error => toast.error("Error al obtener los productos"))
 .finally(()=> setLoading(false))
 },[id])
