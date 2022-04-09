@@ -3,12 +3,13 @@ import Table from 'react-bootstrap/Table'
 import {removeItem} from "./CartContext"
 import { useContext, useState } from "react"
 import {Link} from "react-router-dom"
+import {item} from "./ItemDetailContainer"
 
-export const Cart = ({item}) => {
-  console.log(item)
+
+ export const Cart = ({item}) => {
+  console.log(item, "undefined")
   const {cart, total, removeItem} = useContext(CartContext)
-  
-      {
+  return(
         cart.length > 0 ?
         <ul>
           { cart.map(item => {
@@ -28,7 +29,7 @@ export const Cart = ({item}) => {
   <td>{item.quantity}</td>
         <td>{item.nombre}</td>
         <td>${item.precio}</td>
-        <td>${item.quantity} x {item.item.precio}</td> 
+        <td>${item.quantity} * {item.item.precio}</td> 
       <button onClick={removeItem} className="btn btn-primary">-</button> 
       </tr>
       </tbody>
@@ -52,8 +53,9 @@ export const Cart = ({item}) => {
     :
     <div>
       <p>No hay productos en el carrito</p> 
-     <p className="btn"><Link to="/">Volver al home</Link></p>
+     <p className="btn "><Link to="/">Volver a la pagina principal</Link></p>
     </div>
+      
    
     
  
@@ -61,7 +63,7 @@ export const Cart = ({item}) => {
     
      
       
-}}
+  )}
  
 
    
